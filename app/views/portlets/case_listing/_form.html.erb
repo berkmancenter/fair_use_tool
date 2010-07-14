@@ -1,0 +1,4 @@
+<%= f.cms_text_field :name %>
+<%= f.cms_drop_down :case_id, Case.all.collect{|c| [c.title, c.id]} %>
+<%= f.cms_drop_down :page_id, Page.all.select{|p| p.section.name == "Cases"}.collect{|p| [p.title, p.id]} %>
+<%= f.cms_template_editor :template %>

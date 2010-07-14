@@ -1,0 +1,3 @@
+<%= f.cms_text_field :name %>
+<%= f.cms_drop_down :question_id, Question.all.collect{|q| [q.name, q.id]} %>
+<%= f.cms_template_editor :template %>

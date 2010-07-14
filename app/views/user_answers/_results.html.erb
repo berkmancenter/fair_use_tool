@@ -1,0 +1,30 @@
+<% 
+  @survey_questions = @survey.questions
+%>
+<div class="error"></div>
+<% field_set_tag nil, :class => 'Survey' do %>
+  <div class="wizard">
+    <% @survey.questions.each do |q| %>
+      <div class="question">
+        <h3><a href="#"><%= q.content %></a></h3>
+        <div>
+          <% field_set_tag nil, :class => 'Question' do %>
+            <div class="answer">
+              <% q.answers.each do |a| %>
+                <% if results.collect{|r| r.answer_id}.include?(a.id) %>
+                <p class="selected <%= a.color_classification %>">
+                  >>><%= a.content %>
+                </p>
+                <% else %>
+                <p class="<%= a.color_classification %>">
+                  <%= a.content %>
+                </p>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

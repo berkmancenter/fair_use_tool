@@ -1,0 +1,29 @@
+<% 
+@tie_broken = judgement(@results)
+@red_green_values = red_green_totals(@results)
+@official_tie_broken = judgement(@official_results)
+@official_red_green_values = red_green_totals(@official_results)
+-%>
+<div class="grid_12">
+  <h1>You Tested: <%= @case.title %></h1>
+</div>
+<%= render :partial => "/cases/resource", :locals => {:original => true, :kase => @case} %>
+<%= render :partial => "/cases/resource", :locals => {:original => false, :kase => @case} %>
+<div class="yourAnswers grid_6">
+  <h1>You Found:</h1>
+
+  <%= render :partial => "scorecard", :locals => {:results => @results, :red_green_values => @red_green_values, :tie_broken => @tie_broken} %>
+
+  <%= render :partial => "results", :locals => {:results => @results} %>
+</div>
+
+<div class="judgeAnswers grid_6">
+  <h1>Judges Found:</h1>
+
+  <%= render :partial => "scorecard", :locals => {:results => @official_results, :red_green_values => @official_red_green_values, :tie_broken => @official_tie_broken} %>
+
+  <%= render :partial => "results", :locals => {:results => @official_results} %>
+</div>
+<div class="clearFloat"></div>
+<% debugger %>
+<div class="grid_12"><%= link_to "Back to the case?", request.referrer %> | <%= link_to "Start your own survey", "/survey" %></div>

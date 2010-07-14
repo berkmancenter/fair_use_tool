@@ -1,0 +1,5 @@
+<%= f.cms_text_field :content %>
+<%= f.cms_drop_down :question_id, Question.all.collect{|q| [q.content, q.id]} %>
+<%= f.cms_text_field :order %>
+<%= f.cms_text_field :value %>
+<%= f.cms_check_box :tiebreaker %>

@@ -1,0 +1,6 @@
+<%= f.cms_text_field :title %>
+<%= f.cms_text_editor :facts %>
+<%= f.cms_drop_down :original_resource_id, ImageBlock.all.collect{|r| [r.name, r.id]} %>
+<%= f.cms_drop_down :derivative_resource_id, ImageBlock.all.collect{|r| [r.name, r.id]} %>
+<%= f.cms_drop_down :survey_id, Survey.all.collect{|s| [s.name, s.id]} %>
+<%= f.hidden_field :user_id, :value => current_user.id %>

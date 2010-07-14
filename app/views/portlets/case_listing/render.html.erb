@@ -1,0 +1,5 @@
+<h1><%= link_to @case.title, "#{@page_path}" %></h1>
+<h2>Facts:</h2>
+<p>
+  <%= @case.facts.split("")[0..200].join("").gsub(/\w* *?$/, "") %>...
+</p>

@@ -1,0 +1,21 @@
+<div class="grid_6">
+<% if original -%>
+  <div class="original sourceFile">
+  <% if !kase.original_resource.nil? && !kase.original_resource.id.nil? -%>
+    <h2>Original work</h2>
+    <%= image_tag(kase.original_resource.attachment.file_path, :align => "left", :hspace => "10px", :vspace => "10px") %>
+  <% else -%>
+    No original work added yet
+  <% end -%>
+  </div>
+<% else -%>
+  <div class="derivative sourceFile">
+  <% if !kase.derivative_resource.nil? && !kase.derivative_resource.id.nil? -%>
+    <h2>Derivative work</h2>
+    <%= image_tag(kase.derivative_resource.attachment.file_path, :align => "left", :hspace => "10px", :vspace => "10px") %>
+  <% else -%>
+    No Derivative work added yet
+  <% end -%>
+  </div>
+<% end %>
+</div>

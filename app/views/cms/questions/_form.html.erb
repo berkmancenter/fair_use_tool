@@ -1,0 +1,4 @@
+<%= f.cms_drop_down :survey_id, Survey.all.collect{|s| [s.name, s.id]} %>
+<%= f.cms_text_field :content %>
+<%= f.cms_text_field :order %>
+<%= f.cms_text_editor :explanation %>

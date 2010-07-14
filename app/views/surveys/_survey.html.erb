@@ -1,0 +1,49 @@
+<% session_id, cookies_disabled = resolve_session(session) -%>
+<div class="error">
+<% if cookies_disabled -%>
+  <h1>Warning: You may have cookies disabled. This site runs much better when you enable cookies, if you can afford to do that.</h1>
+<% end -%>
+</div>
+<div class="grid_6">
+  <% form_for [survey, survey.user_answers.new], :class => "cmxform", :html => {:id => 'surveyForm'}, :method => "put" do |f| -%>
+    <%= f.error_messages %>
+    <% field_set_tag nil, :class => 'Survey' do -%>
+      <div class="wizard">
+        <% survey.questions.each do |q| -%>
+          <div class="question">
+            <h3><a href="#"><%= q.content %></a></h3>
+            <div><!-- blank div here for js accordion display -->
+              <% if q.explanation -%>
+            
+              <a href="/survey_explanations/<%= survey.id %>#question_<%= q.id %>" onClick="open_explanation(<%= survey.id %>, <%= q.id %>); return false;" class="information" id="<%= survey.id %>_<%= q.id %>">Information</a>
+              <% end -%>
+              <% field_set_tag nil, :class => 'Question' do %>
+                <div class="answer">
+                  <% q.answers.each do |a| -%>
+                    <p>
+                      <% if user_case_answers.nil? -%>
+                        <%= radio_button_tag("answer[#{q.id}]", "#{a.id}", false, {:validate => "required:true"}) %>
+                      <% else -%>
+                        <%= radio_button_tag("answer[#{q.id}]", "#{a.id}", false, {:validate => "required:true", :checked => !user_case_answers.select{|aa| aa.answer_id == a.id}.compact.empty?}) %>
+                      <% end -%>
+                      <%= a.content %>
+                    </p>
+                  <% end -%>
+                </div>
+              <% end -%>
+              <%= submit_tag("previous", :type => 'button', :disabled => (survey_questions.first == q ? true : false), :class => "previous") %>
+              <%= submit_tag("next", :type => 'button', :disabled => (survey_questions.last == q ? true : false), :class => "next") %>
+            </div>            
+          </div>
+        <% end -%>
+        <p>
+          <%= hidden_field "session_id", session_id %>
+          <% if !kase.nil? -%>
+            <%= hidden_field_tag :case_id, kase.id %>
+          <% end -%>
+          <%= f.submit 'Submit' %>
+        </p>
+      </div>
+    <% end -%>
+  <% end -%>
+</div>

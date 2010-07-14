@@ -1,0 +1,42 @@
+<div class="scorecard">
+  <table class="grid_5">
+    <tr>
+      <th>#</th>
+      <th>G</th>
+      <th>R</th>
+    </tr>
+    <% iteration = 1 -%>
+    <% green_total = 0 -%>
+    <% red_total = 0 -%>
+    <% for result in results -%>
+  <% if tie_broken && result.answer.tiebreaker -%>
+    <tr class="<%= result.answer.color_classification %>">
+      <td><%= result.question.content %></td>
+      <td><%= red_green_values[result.id.to_s]["green"] %></td>
+      <td><%= red_green_values[result.id.to_s]["red"] %></td>
+    </tr>
+    <tr class="tie_breaker <%= result.answer.color_classification %>">
+      <td>Tie Breaker!</td>
+      <td><%= red_green_values[result.id.to_s]["green"] %></td>
+      <td><%= red_green_values[result.id.to_s]["red"] %></td>
+    </tr>
+    <% green_total += red_green_values[result.id.to_s]["green"].class == String ? 1 : red_green_values[result.id.to_s]["green"]*2 -%>
+    <% red_total += red_green_values[result.id.to_s]["red"].class == String ? 1 : red_green_values[result.id.to_s]["red"]*2 -%>
+  <% else -%>
+    <tr class="<%= result.answer.color_classification %>">
+      <td><%= result.question.content %></td>
+      <td><%= red_green_values[result.id.to_s]["green"] %></td>
+      <td><%= red_green_values[result.id.to_s]["red"] %></td>
+      <% green_total += red_green_values[result.id.to_s]["green"].class == String ? 0.5 : red_green_values[result.id.to_s]["green"] -%>
+      <% red_total += red_green_values[result.id.to_s]["red"].class == String ? 0.5 : red_green_values[result.id.to_s]["red"] -%>
+    </tr>
+  <% end -%>
+      <% iteration += 1 -%>
+    <% end -%>
+    <tr class="totals">
+      <td>Total</td>
+      <td><%= green_total.integer? ? green_total.to_s : green_total.to_i.to_s+" 1/2" %></td>
+      <td><%= red_total.integer? ? red_total.to_s : red_total.to_i.to_s+" 1/2" %></td>
+    </tr>
+  </table>
+</div>

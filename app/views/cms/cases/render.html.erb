@@ -1,0 +1,24 @@
+<h1><b>Name:</b> <%= @content_block.name %></h1>
+<div>
+  <h2>Original Resource:</h2>
+  <%= image_tag(@content_block.original_resource.attachment.file_path) %>
+</div>
+<div>
+  <h2>Derivative Resource:</h2>
+  <%= image_tag(@content_block.derivative_resource.attachment.file_path) %>
+</div>
+<div>
+  <p>
+    <h1>Facts:</h1>
+    <%= @content_block.facts %>
+  </p>
+  <% if @content_block.case_answers.empty? -%>
+    <%= render :partial => "survey_form", :locals => {:kase => @content_block, :survey => @content_block.survey} %>
+  <% else -%>
+    <%= render :partial => "results", :locals => {:kase => @content_block, :case_result_type => "case_answers"} %>
+    <a href="#" onclick="$(this).toggle(function(){$('#case_answer_survey_form').css({'display':'block'});});">Edit your answers?</a>
+    <div id="case_answer_survey_form" style="display:none;">
+    <%= render :partial => "survey_form", :locals => {:kase => @content_block, :survey => @content_block.survey} %>
+    </div>  
+  <% end -%>
+</div>

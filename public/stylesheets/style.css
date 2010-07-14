@@ -1,0 +1,219 @@
+/* Basics */
+/* -------------------------------------------------------------------------- */
+
+body {
+background-color: #f7f7f7;
+font-size: 1em;
+font-family: Verdana, Helvetica, Arial, sans-serif;
+color:#564b47;
+padding:0;
+margin:0;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   10px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 11px;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+
+/*  form */
+/* -------------------------------------------------------------------------- */
+
+form {
+}
+
+form p {
+font-size: 0.8em;
+}
+
+form .checkbox input {
+margin-right: 3px;
+float: left;
+}
+
+form input[type='radio'] {
+margin-right: 3px;
+float: left;
+}
+
+form input[type='submit'] {
+width: 200px; 
+display: inline; 
+}
+
+form textarea { }
+form .text input {margin: 5px 10px 5px 10px;}
+
+
+/* Welcome message */
+form .Welcome p {
+font-size: 14px;
+}
+
+/* Thank you message */
+form .Thankyou p {
+font-size: 12px;
+}
+
+
+/* Form Title */
+form .Survey {
+font-size: 1.4em; 
+font-weight: bold; 
+padding: 5px 10px;
+margin:0;
+color: #264764;
+border-bottom: 1px solid #B8B8B8;
+}
+
+/* Group Name */
+form h3 { 
+font-size: 1.2em; 
+font-weight: bold; 
+font-style: italic;
+background-color : #EDE9C5;
+text-align: left;
+border: 1px #b7b7b7 solid;
+}
+
+/* Group Description */
+form .GroupDescription p {
+font-size: 12px;
+border-bottom: 1px dotted #B8B8B8;
+padding: 5px 10px;
+}
+
+/* Question Heading (You can group questions under another heading) */
+form .QuestionHeader p {
+font-weight: bold;
+background-color : #EDE9C5;
+text-align: left;
+margin: 5px 10px 5px 10px;
+padding: 2px 2px;
+}
+
+/* Question */
+form .Question p {
+font-weight: bold;
+background-color : #e0ebf1;
+text-align: left;
+margin: 5px 10px 5px 10px;
+padding: 2px 2px;
+}	
+
+/* Subquestion */
+form .Subquestion p {
+font-weight: bold;
+text-align: left;
+margin: 5px 10px 5px 10px;
+padding: 2px 2px;
+font-style: italic;
+}	
+
+/* Question error (error displayed above the actual question) */
+form .QuestionError p {
+font-weight: bold;
+background-color : #ffdee2;
+text-align: left;
+margin: 5px 10px 5px 10px;
+padding: 2px 2px;
+}	
+
+/* Error messages */
+form .Error {
+background-color: #ffdee2;
+border-top: 1px solid #ffb0bd;
+border-bottom: 1px #ffb0bd solid;
+margin: 2px 1px 2px 1px;
+color: #ff5762;
+font-weight: normal;
+}
+
+form .Error li, p, ul { 
+font-size: 10px;
+padding-left: 10px;}
+
+form .Error h3 {
+font-size: 12px;
+border-bottom: none}
+
+form .Error a { color: #fff; }
+
+/* Notice messages */
+form .Notice p {
+background-color: #e9ffe7;
+border-top: 1px solid #ffb0bd;
+border-bottom: 1px #ffb0bd solid;
+margin: 2px 1px 2px 1px;
+color: #288320;
+font-weight: normal;
+padding-left: 10px;
+font-size: 14px;}
+
+
+div.message{
+    background: transparent url(/images/msg_arrow.gif) no-repeat scroll left center;
+    padding-left: 7px;
+}
+
+div.error{
+    background-color:#F3E6E6;
+    border-color: #924949;
+    border-style: solid solid solid none;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/* Accordion */
+.accordion {
+height:50px;
+width: 200px;
+text-align: left;
+}

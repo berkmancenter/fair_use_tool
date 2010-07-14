@@ -1,0 +1,6 @@
+<% 
+@tie_broken = judgement(@results)
+@red_green_values = red_green_totals(@results)
+%>
+<%= render :partial => "scorecard", :locals => {:results => @results, :tie_broken => @tie_broken, :red_green_values => @red_green_values} %>
+<%= render :partial => "results", :locals => {:results => @results} %>

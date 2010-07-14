@@ -1,0 +1,14 @@
+<h1><%= kase.survey.name %> Results</h1>
+<ol>
+<% for question in kase.survey.questions %>
+  <li>
+    <% for answer in question.answers %>
+      <span class="answer <%= answer.color_classification %>">
+        <% if !(result = kase.send(case_result_type).select{|a| (a.answer_id == answer.id && a.class == CaseAnswer) || ((a.answer_id == answer.id && !a.user_id.nil?) || (kase.user.nil? && a.user_id.nil? && a.answer_id == answer.id))}.first).nil? %>
+          <b><%= question.content %></b> <%= answer.content %>
+        <% end %>
+      <% end %>
+    </span>
+  </li>
+<% end %>
+</ol>

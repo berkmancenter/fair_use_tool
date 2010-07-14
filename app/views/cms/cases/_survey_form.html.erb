@@ -1,0 +1,32 @@
+<% form_for [kase, survey], :class => "cmxform", :html => {:id => 'surveyForm'}, :method => "put" do |f| %>
+  <h2 class="Survey"><%= survey.name %></h2>
+  <%= f.error_messages %>
+  <% field_set_tag nil, :class => 'Survey' do %>
+  <ol>
+    <div id="wizard">
+      <% survey.questions.each do |q| %>
+        <div class="question">
+          <b><%= q.content %></b>
+          <div>
+            <% field_set_tag nil, :class => 'Question' do %>
+              <div class="answer">
+                <% q.answers.each do |a| %>
+                  <li>
+                    <%= radio_button_tag("answer[#{q.id}]", "#{a.id}", false, {:validate => "required:true"}) %><%= a.content %>
+                  </li>
+                <%  end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <p>
+        <% if !kase.nil? %>
+          <%= hidden_field_tag :case_id, kase.id %>
+        <% end %>
+        <%= f.submit 'Submit' %>
+      </p>
+    </div>
+  </ol>
+  <% end %>
+<% end %>

@@ -1,0 +1,4 @@
+<% 
+  @survey_questions = @survey.questions
+-%>
+<%= render :partial => "/surveys/survey", :locals => {:survey => @survey, :kase => @case, :user_case_answers => nil, :survey_questions => @survey_questions} %>

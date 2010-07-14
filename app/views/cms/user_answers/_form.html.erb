@@ -1,0 +1,4 @@
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.cms_drop_down :case_id, Case.all.collect{|c| [c.title, c.id]} %>
+<%= f.cms_drop_down :answer_id, Answer.all.collect{|c| [c.name, c.id]} %>
+<%= f.cms_drop_down :survey_id, Survey.all.collect{|c| [c.name, c.id]} %>
