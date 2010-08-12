@@ -5,6 +5,7 @@
 <% end -%>
 </div>
 <div class="grid_6">
+  <br />
   <% form_for [survey, survey.user_answers.new], :class => "cmxform", :html => {:id => 'surveyForm'}, :method => "put" do |f| -%>
     <%= f.error_messages %>
     <% field_set_tag nil, :class => 'Survey' do -%>
@@ -14,26 +15,25 @@
             <h3><a href="#"><%= q.content %></a></h3>
             <div><!-- blank div here for js accordion display -->
               <% if q.explanation -%>
-            
-              <a href="/survey_explanations/<%= survey.id %>#question_<%= q.id %>" onClick="open_explanation(<%= survey.id %>, <%= q.id %>); return false;" class="information" id="<%= survey.id %>_<%= q.id %>">Information</a>
+              <a href="/survey_explanations/<%= survey.id %>#question_<%= q.id %>" onClick="open_explanation(<%= survey.id %>, <%= q.id %>); return false;" class="information" id="<%= survey.id %>_<%= q.id %>"></a>
               <% end -%>
               <% field_set_tag nil, :class => 'Question' do %>
                 <div class="answer">
                   <% q.answers.each do |a| -%>
-                    <p>
                       <% if user_case_answers.nil? -%>
                         <%= radio_button_tag("answer[#{q.id}]", "#{a.id}", false, {:validate => "required:true"}) %>
                       <% else -%>
                         <%= radio_button_tag("answer[#{q.id}]", "#{a.id}", false, {:validate => "required:true", :checked => !user_case_answers.select{|aa| aa.answer_id == a.id}.compact.empty?}) %>
                       <% end -%>
                       <%= a.content %>
-                    </p>
+                    <br />
                   <% end -%>
                 </div>
               <% end -%>
               <%= submit_tag("previous", :type => 'button', :disabled => (survey_questions.first == q ? true : false), :class => "previous") %>
               <%= submit_tag("next", :type => 'button', :disabled => (survey_questions.last == q ? true : false), :class => "next") %>
             </div>            
+            <div class="separator"></div>
           </div>
         <% end -%>
         <p>

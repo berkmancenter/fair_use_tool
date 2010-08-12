@@ -2,44 +2,77 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title><%= page_title = (current_page.blank?) ? ((@page_title.blank?) ? 'OMLN' : @page_title) : current_page.ancestors[1..current_page.ancestors.size].collect{|sec| sec.name}.push(current_page.name).join(' &raquo; ') %> :: ScoreCard</title>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title><%= page_title = (current_page.blank?) ? ((@page_title.blank?) ? 'Fair Use Calculator' : @page_title) : current_page.ancestors[1..current_page.ancestors.size].collect{|sec| sec.name}.push(current_page.name).join(' &raquo; ') %> :: ScoreCard</title>
 
-  <%= stylesheet_link_tag 'grid/960' %>
-  <%= stylesheet_link_tag 'grid/reset' %>
-  <%= stylesheet_link_tag 'grid/text' %>
-  <%= stylesheet_link_tag 'scaffold' %>
-  <%= javascript_include_tag 'prototype' %>
-  <%= javascript_include_tag 'effects' %>
-  <%= javascript_include_tag 'jquery-1.3.2.min' %>
-  <%= javascript_include_tag 'jquery-ui-1.7.2.custom.min' %>
-  <%= javascript_include_tag 'cmxforms' %>
-  <%= javascript_include_tag 'jquery.metadata' %>
-  <%= javascript_include_tag 'jquery.validate' %>
-  <%= javascript_include_tag 'application' %>
-  <%= yield :html_head %>
-</head>
-<body>
-<% if Rails.env == 'development' %>
-  <h1 style="color:red; text-align: center;">DEVELOPMENT SITE</h1>
-<% end %>
+    <%= stylesheet_link_tag 'grid/960' %>
+    <%= stylesheet_link_tag 'grid/reset' %>
+    <%= stylesheet_link_tag 'grid/text' %>
+    <%= stylesheet_link_tag 'style' %>
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag 'effects' %>
+    <%= javascript_include_tag 'jquery-1.3.2.min' %>
+    <%= javascript_include_tag 'jquery-ui-1.7.2.custom.min' %>
+    <%= javascript_include_tag 'cmxforms' %>
+    <%= javascript_include_tag 'jquery.metadata' %>
+    <%= javascript_include_tag 'jquery.validate' %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield :html_head %>
+  </head>
+  <body>
+    <% if Rails.env == 'development' %>
+      <h1 style="color:red; text-align: center;">DEVELOPMENT SITE</h1>
+    <% end %>
 
-<%= cms_toolbar %>
-<div class="errorExplanation"><p style="color: green"><%= flash[:notice] %></p><p style="color: red"><%= flash[:error] %></p></div>
-<div id="content" class="container_12">
-  <div id="header">
-    <div id="banner" class="grid_8">
-      BANNER<br /><br /><br /><br />
+    <%= cms_toolbar %>
+    <div class="errorExplanation"><p style="color: green"><%= flash[:notice] %></p><p style="color: red"><%= flash[:error] %></p></div>
+    <div id="header" class="container_12">
+      <div id="banner">
+        BANNER<br /><br /><br /><br />
+      </div>
+      <div id="navigation">
+        <% debugger %>
+        <ul>
+          <% if @page_title.downcase ==  "home" -%>
+            <li class="first"><a class="selected" href="#">Home</a></li>
+            <li><a href="#">Fair Use Tools</a></li>
+            <li><a href="#">Support Material</a></li>
+            <li><a href="#">About</a></li>
+          <% elsif @page_title.downcase == "fair use tools" || @page_title.downcase == "all cases" || request.path.include?("/cases/") -%>
+            <li class="first"><a href="#">Home</a></li>
+            <li><a class="selected" href="#">Fair Use Tools</a></li>
+            <li><a href="#">Support Material</a></li>
+            <li><a href="#">About</a></li>
+          <% elsif @page_title.downcase == "support material" -%>
+            <li class="first"><a href="#">Home</a></li>
+            <li><a href="#">Fair Use Tools</a></li>
+            <li><a class="selected" href="#">Support Material</a></li>
+            <li><a href="#">About</a></li>
+          <% elsif @page_title.downcase == "about" -%>
+            <li class="first"><a href="#">Home</a></li>
+            <li><a href="#">Fair Use Tools</a></li>
+            <li><a href="#">Support Material</a></li>
+            <li><a class="selected" href="#">About</a></li>
+          <% else %>
+            <li class="first"><a href="#">Home</a></li>
+            <li><a href="#">Fair Use Tools</a></li>
+            <li><a href="#">Support Material</a></li>
+            <li><a href="#">About</a></li>
+          <% end -%>
+        </ul>
+      </div>  
     </div>
-    <div id="navigation" class="grid_4">
-      Navigation<br /><br /><br /><br />
+    <div id="main" class="container_12">
+      <div id="content">
+        <br />
+        <div>
+          <%= container :main %>
+        </div>
+        <div class="clearFloat"></div>
+      </div>
+      <div id="footer" class="container_12">
+      </div>
     </div>
-  </div>
-  <div id="main" class="container_12">
-    <%= container :main %>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>

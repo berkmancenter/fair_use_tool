@@ -1,219 +1,135 @@
-/* Basics */
-/* -------------------------------------------------------------------------- */
-
-body {
-background-color: #f7f7f7;
-font-size: 1em;
-font-family: Verdana, Helvetica, Arial, sans-serif;
-color:#564b47;
-padding:0;
-margin:0;
+body{
+	background:#021f2f;
 }
 
-body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   10px;
+#banner{
+	background:#fff;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+#navigation{
+	background:#021f2f url('/images/assets/headerbg.gif');
+	height:56px;
+	-moz-border-radius: 4px 4px 0 0;
+	-moz-box-shadow: 0px 2px 4px rgba(51,51,51,.3);
+	-webkit-border-radius: 4px 4px 0 0;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
-
-.fieldWithErrors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+#main.container_12{
+	background:#fff;
 }
 
-#errorExplanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  font-size: 11px;
+#content{
+	background:#fff;
+	padding-bottom:2em;
+	padding-left:10px;
 }
 
-#errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #c00;
-  color: #fff;
+#footer{
+	background:#666;
+	margin-bottom:2em;
+	height:4em;
 }
 
-#errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 5px;
+#navigation li a {
+	position: relative;
+	display: block;
+	height: 45px;
+	font-weight:bold;
+	color: #fff;
+	float: left;
+	padding: 19px 45px 0 45px;
+	text-decoration: none;
 }
 
-#errorExplanation ul li {
-  font-size: 12px;
-  list-style: square;
+#navigation li a:hover,#navigation li.selected {
+	background-color: transparent;
+	background-image: url('/images/assets/header-selected.gif');
+	background-repeat: repeat-x;
+	background-attachment: scroll;
+	background-position: 0% 0%;
+	text-decoration: none;
+	-moz-border-radius: 6px 6px 0 0;
+	-webkit-border-radius: 6px 6px 0 0;
 }
 
-
-/*  form */
-/* -------------------------------------------------------------------------- */
-
-form {
+#navigation li a.selected, #navigation li.first a.selected{
+	background-image:url('/images/assets/header-select-arrow.gif');	
+	background-repeat:no-repeat;
+	background-position:center bottom;
 }
 
-form p {
-font-size: 0.8em;
-}
-
-form .checkbox input {
-margin-right: 3px;
-float: left;
-}
-
-form input[type='radio'] {
-margin-right: 3px;
-float: left;
-}
-
-form input[type='submit'] {
-width: 200px; 
-display: inline; 
-}
-
-form textarea { }
-form .text input {margin: 5px 10px 5px 10px;}
-
-
-/* Welcome message */
-form .Welcome p {
-font-size: 14px;
-}
-
-/* Thank you message */
-form .Thankyou p {
-font-size: 12px;
+#navigation ul li {
+	list-style-type:none;
+	padding:0 0;
 }
 
 
-/* Form Title */
-form .Survey {
-font-size: 1.4em; 
-font-weight: bold; 
-padding: 5px 10px;
-margin:0;
-color: #264764;
-border-bottom: 1px solid #B8B8B8;
+/*PAGE BASED CSS*/
+
+/*HOME PAGE*/
+
+a.cases,a.surveys{
+	display:inline;
+	height:6.5em;
+	text-decoration:none;
+	text-transform:uppercase;
+	font-size:2em;
+	font-weight:bold;
+	color:#021f2f;	
 }
 
-/* Group Name */
-form h3 { 
-font-size: 1.2em; 
-font-weight: bold; 
-font-style: italic;
-background-color : #EDE9C5;
-text-align: left;
-border: 1px #b7b7b7 solid;
+a.cases span,a.surveys span{
+margin-left:1em;
 }
 
-/* Group Description */
-form .GroupDescription p {
-font-size: 12px;
-border-bottom: 1px dotted #B8B8B8;
-padding: 5px 10px;
+a.cases{
+	background-image:url('/images/assets/landing/gavel.jpg');	
 }
 
-/* Question Heading (You can group questions under another heading) */
-form .QuestionHeader p {
-font-weight: bold;
-background-color : #EDE9C5;
-text-align: left;
-margin: 5px 10px 5px 10px;
-padding: 2px 2px;
+a.surveys{
+	background-image:url('/images/assets/landing/notebook.jpg');	
 }
 
-/* Question */
-form .Question p {
-font-weight: bold;
-background-color : #e0ebf1;
-text-align: left;
-margin: 5px 10px 5px 10px;
-padding: 2px 2px;
-}	
-
-/* Subquestion */
-form .Subquestion p {
-font-weight: bold;
-text-align: left;
-margin: 5px 10px 5px 10px;
-padding: 2px 2px;
-font-style: italic;
-}	
-
-/* Question error (error displayed above the actual question) */
-form .QuestionError p {
-font-weight: bold;
-background-color : #ffdee2;
-text-align: left;
-margin: 5px 10px 5px 10px;
-padding: 2px 2px;
-}	
-
-/* Error messages */
-form .Error {
-background-color: #ffdee2;
-border-top: 1px solid #ffb0bd;
-border-bottom: 1px #ffb0bd solid;
-margin: 2px 1px 2px 1px;
-color: #ff5762;
-font-weight: normal;
+a:hover.cases,a:hover.surveys{
+	color:#0a0a0a;
 }
 
-form .Error li, p, ul { 
-font-size: 10px;
-padding-left: 10px;}
+/*SURVEY */
 
-form .Error h3 {
-font-size: 12px;
-border-bottom: none}
-
-form .Error a { color: #fff; }
-
-/* Notice messages */
-form .Notice p {
-background-color: #e9ffe7;
-border-top: 1px solid #ffb0bd;
-border-bottom: 1px #ffb0bd solid;
-margin: 2px 1px 2px 1px;
-color: #288320;
-font-weight: normal;
-padding-left: 10px;
-font-size: 14px;}
-
-
-div.message{
-    background: transparent url(/images/msg_arrow.gif) no-repeat scroll left center;
-    padding-left: 7px;
+div.survey{
+	margin-top:1em;
+	border:1px solid #666;
+	-moz-border-radius: 4px;
+	-moz-box-shadow: 2px 2px 4px rgba(51,51,51,.3);
+	-webkit-border-radius: 4px;
 }
-
-div.error{
-    background-color:#F3E6E6;
-    border-color: #924949;
-    border-style: solid solid solid none;
-    border-width: 2px;
-    padding: 5px;
+div.survey a.information{
+	background-image:url('/images/assets/information_tab.gif');	
+	display:block;
+	width:16px;
+	height:14px;
+	position:absolute;
+	right:10px;
+	top:-15px;
 }
+div.question{
+	line-height:1.5em;
+	position:relative;
+}
+div.wizard h3 a {
+	text-decoration:none;
+}
+div.question div input.next{
+	margin-bottom:2em;
+}
+div.question div.separator{
+	border-bottom:1px solid #000;
+	width:430px;
+	margin-bottom:0.5em;
+}
+/*OPERATIONAL CLASSES*/
 
-/* Accordion */
-.accordion {
-height:50px;
-width: 200px;
-text-align: left;
+.clearFloat{
+	clear:both;
+	float:none;
 }

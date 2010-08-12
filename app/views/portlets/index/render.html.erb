@@ -1,6 +1,6 @@
 <%=h @portlet.name %>
 <h1>What do you want to do?</h1>
-
-
-<h2><%= link_to "Take the fair use Survey", "/survey" %></h2>
-<h2><%= link_to "View the fair use Cases", cases_path %></h2>
+<div class="grid_12 alpha omega">
+<a class="cases grid_6 alpha" href="/cases/"><span>try a fair use case</span></a>
+<a class="surveys grid_6 omega" href="/surveys/"><span>try your own case</span></a>
+</div>

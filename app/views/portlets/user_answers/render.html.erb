@@ -2,6 +2,6 @@
   @user_case_answers = !@case.nil? ? @case.user_case_answers(current_user) : [] 
   @survey_questions = @survey.questions
 -%>
-<div id="survey_<%= @survey.id %>" class="grid_6">
+<div id="survey_<%= @survey.id %>" class="survey grid_6 omega">
 <%= render :partial => "/surveys/survey", :locals => {:survey => @survey, :kase => @case, :user_case_answers => @user_case_answers, :survey_questions => @survey_questions} %>
 </div>
